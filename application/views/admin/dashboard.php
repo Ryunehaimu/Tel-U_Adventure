@@ -88,7 +88,7 @@
                                 <a href="#" class="sidebar-link">Gedung</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="./application/views/admin/MasterData/User.php" class="sidebar-link">User</a>
+                                <a href="#" class=" sidebar-link">User</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link">Laporan Barang</a>
@@ -121,7 +121,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-            <main class="content px-3 py-2">
+            <main class="content px-3 py-2" style="padding: 100px;">
                 <div class="container-fluid">
                     <div class="mb-3">
                         <h3>Dashboard</h3>

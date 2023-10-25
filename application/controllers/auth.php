@@ -33,12 +33,12 @@ class auth extends CI_Controller
             if (password_verify($password, $user['Password'])) {
                 redirect('admin');
             } else {
-                $this->session->set_flashdata('message', '<div class ="alert alert->danger" role="alert">Password salah!</div>');
-                redirect('auth');
+                $this->session->set_flashdata('message', '<div class ="alert alert-danger" role="alert">Password salah!</div>');
+                redirect(base_url('auth'));
             }
         } else {
-            $this->session->set_flashdata('message', '<div class ="alert alert->danger" role="alert">Username tidak terdaftar!</div>');
-            redirect('auth');
+            $this->session->set_flashdata('message', '<div class ="alert alert-danger" role="alert">Username tidak terdaftar!</div>');
+            redirect(base_url('auth'));
         }
     }
 }
