@@ -77,6 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
+	'port' => '3306',
 	'password' => '',
 	'database' => 'telu_adventure',
 	'dbdriver' => 'mysqli',

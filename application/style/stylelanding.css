@@ -1,0 +1,163 @@
+:root {
+    --fuschia-100: rgba(239, 93, 168, 1);
+    --fuschia-80: rgba(241, 120, 182, 1);
+    --fuschia-60: rgba(252, 221, 236, 1);
+    --iris-100: rgba(93, 95, 239, 1);
+    --iris-80: rgba(120, 121, 241, 1);
+    --iris-60: rgba(165, 166, 246, 1);
+    --header-1-font-family: "WorkSans-Bold", Helvetica;
+    --header-1-font-weight: 700;
+    --header-1-font-size: 34px;
+    --header-1-letter-spacing: -0.68px;
+    --header-1-line-height: normal;
+    --header-1-font-style: normal;
+    --header-2-font-family: "WorkSans-Bold", Helvetica;
+    --header-2-font-weight: 700;
+    --header-2-font-size: 20px;
+    --header-2-letter-spacing: -0.4px;
+    --header-2-line-height: normal;
+    --header-2-font-style: normal;
+    --body-font-family: "WorkSans-Regular", Helvetica;
+    --body-font-weight: 400;
+    --body-font-size: 13px;
+    --body-letter-spacing: -0.26px;
+    --body-line-height: normal;
+    --body-font-style: normal;
+}
+
+.nav-link {
+    text-transform: uppercase;
+
+}
+
+.nav-link:hover::after {
+    content: '';
+    display: block;
+    width: 50%;
+    border-bottom: 3px solid #A11E22;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+}
+
+.label {
+    width: 704px;
+    height: 370px;
+}
+
+.explore-the-world {
+    width: 704px;
+    top: 60px;
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 52px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.label .text-wrapper {
+    font-weight: 500;
+}
+
+.label .span {
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+}
+
+.label .text-wrapper-1 {
+    position: relative;
+    width: 704px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #6e6e6e;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.gambar {
+    width: 246px;
+    height: 313px;
+}
+
+.T {
+    position: relative;
+    width: 195px;
+    height: 265px;
+    object-fit: cover;
+}
+
+.E {
+    position: relative;
+    width: 195px;
+    height: 265px;
+    object-fit: cover;
+}
+
+.L {
+    position: relative;
+    width: 195px;
+    height: 265px;
+    object-fit: cover;
+}
+
+.U {
+    position: relative;
+    width: 176px;
+    height: 136px;
+    object-fit: cover;
+}
+
+.adventure {
+    position: relative;
+    width: 350px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.ellipse {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    background-color: #ffffff;
+    border-radius: 49.5px;
+    box-shadow: 0px 4px 4px 3px #00000040;
+}
+
+.ph-arrow-up-light {
+    position: relative;
+}
+
+.login-lets {
+    position: relative;
+    width: 160px;
+    height: 45px;
+    background-color: #ca292e;
+    border-radius: 0px 30px 30px 0px;
+    border: none;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    padding-right: -50px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.jumbotron {
+    position: relative;
+    width: 1300px;
+    height: 694px;
+}
+
+body {
+    overflow: scroll;
+    /* Atau overflow: scroll; */
+}
+
+.box {
+    border: none;
+}
+
+.card {
+    border-radius: 33px;
+}
