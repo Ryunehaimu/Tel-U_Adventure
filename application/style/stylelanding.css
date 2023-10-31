@@ -25,6 +25,12 @@
     --body-font-style: normal;
 }
 
+.navbar {
+    width: 2000px;
+    z-index: 2;
+    position: fixed;
+}
+
 .nav-link {
     text-transform: uppercase;
 
@@ -46,8 +52,9 @@
 }
 
 .explore-the-world {
+    position: absolute;
     width: 704px;
-    top: 60px;
+    top: 150px;
     font-family: "Inter-Medium", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -117,8 +124,10 @@
 }
 
 .ellipse {
-    position: relative;
+    position: absolute;
     width: 55px;
+    top: 527px;
+    left: 295px;
     height: 55px;
     background-color: #ffffff;
     border-radius: 49.5px;
@@ -127,6 +136,8 @@
 
 .ph-arrow-up-light {
     position: relative;
+    left: 10px;
+    margin-top: 15px;
 }
 
 .login-lets {
@@ -146,7 +157,7 @@
 .jumbotron {
     position: relative;
     width: 1300px;
-    height: 694px;
+    height: 600px;
 }
 
 body {
@@ -158,6 +169,174 @@ body {
     border: none;
 }
 
-.card {
-    border-radius: 33px;
+.user-tie-solid {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 50px;
+}
+
+.dosen1 {
+    color: #770e12;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    left: 87px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 100px;
+}
+
+.dosen {
+    position: absolute;
+    top: 135px;
+    left: 97px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #080808;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.vector {
+    position: absolute;
+    width: 4px;
+    height: 47px;
+    top: 65px;
+    left: 240px;
+}
+
+.users-solid {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 130px;
+    margin-right: 50px;
+}
+
+.mahasiswa1 {
+    color: #770e12;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    left: 315px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 100px;
+}
+
+.mahasiswa {
+    position: absolute;
+    top: 135px;
+    left: 315px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #080808;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.vector1 {
+    position: absolute;
+    width: 4px;
+    height: 47px;
+    top: 65px;
+    left: 480px;
+}
+
+.building-solid {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 50px;
+}
+
+.fakultas1 {
+    color: #770e12;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    left: 602px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 100px;
+}
+
+.fakultas {
+    position: absolute;
+    top: 135px;
+    left: 577px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #080808;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.vector2 {
+    position: absolute;
+    width: 4px;
+    height: 47px;
+    top: 65px;
+    left: 730px;
+}
+
+.hektar {
+    width: 50px;
+    height: 50px;
+    margin-top: -80px;
+    margin-left: 800px;
+    margin-right: 50px;
+}
+
+.hektar1 {
+    color: #770e12;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    left: 827px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 100px;
+}
+
+.hektar2 {
+    position: absolute;
+    top: 135px;
+    left: 786px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #080808;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.layanan {
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 38px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.kata {
+    margin-top: 30px;
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
 }
