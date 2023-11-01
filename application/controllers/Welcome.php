@@ -22,6 +22,10 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		// $this->load->view('header');
+<<<<<<< HEAD
 		$this->load->view('user/map');
+=======
+		$this->load->view('/admin/MasterData/user/User.html');
+>>>>>>> 9f17845818bdcedee5b8a306f7191d14d67ad8a0
 	}
 }
