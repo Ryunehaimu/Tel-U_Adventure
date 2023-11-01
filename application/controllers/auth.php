@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class auth extends CI_Controller
+class Auth extends CI_Controller
 {
     public function __construct()
     {
@@ -21,6 +21,12 @@ class auth extends CI_Controller
         } else {
             $this->login();
         }
+    }
+    public function tes()
+    {
+        $data['title'] = 'Login Page';
+        $this->load->view('header', $data);
+        $this->load->view('auth/login');
     }
 
     private function login()

@@ -162,7 +162,7 @@
     // Tambahkan event click pada tombol
     tombolPindahHalaman.addEventListener("click", function() {
       // Pindah ke halaman yang diinginkan menggunakan window.location.href
-      window.location.href = "<?php echo base_url('/controllers/auth'); ?>";
+      window.location.href = "<?php echo base_url('/auth'); ?>";
     });
   </script>
 </body>
