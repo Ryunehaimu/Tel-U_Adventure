@@ -3,146 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="./application/Style/Styledb.css">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/mdb.min.css">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['Gedung', 'Pengunjung perhari'],
-                ['GKU', 11],
-                ['TULT', 2],
-                ['FEB', 2],
-                ['FKB', 2],
-                ['FIK', 7]
-            ]);
-
-            var options = {
-                title: ''
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
-
-            var data = google.visualization.arrayToDataTable([
-                ['Gedung', 'Pengunjung perhari'],
-                ['GKU', 11],
-                ['TULT', 2],
-                ['FEB', 2],
-                ['FKB', 2],
-                ['FIK', 7]
-            ]);
-
-            var options = {
-                title: ''
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
-
-            chart.draw(data, options);
-        }
-    </script>
+    <title>User</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./application/style/sidebar.css" />
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <aside id="sidebar">
-            <div class="h-100">
-                <div class="sidebar-logo">
-                    <a href="#">TelU-Adventure</a>
+    <div class="container">
+        <div class="sidebar active" style="z-index: 1;">
+            <div class="menu-btn">
+                <i class="ph-bold ph-caret-left"></i>
+            </div>
+            <div class="head">
+                <div class="user-img">
+                    <img src="./application/assets/img/Fadhil.png" alt="" />
                 </div>
-                <!-- Sidebar Navigation -->
-                <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        Menu
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="fa-regular fa-user pe-2"></i>
-                            Profile
+                <div class="user-details">
+                    <p class="title">Admin e</p>
+                    <p class="name">Fadhil</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li class="active">
+                            <a href="#">
+                                <i class="icon ph-bold ph-house-simple"></i>
+                                <span class="text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon ph-bold ph-file-text"></i>
+                                <span class="text">Master Data</span>
+                                <i class="arrow ph-bold ph-caret-down"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/application/views/admin/MasterData/user/User.html">
+                                        <span class="text">User</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Achievment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Mata Kuliah</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Gedung</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Laporan Barang Hilang.html">
+                                        <span class="text">Laporan Barang Hilang</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Laporan Barang DItemukan.html">
+                                        <span class="text">Laporan Barang Ditemukan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <p class="title">Account</p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-gear"></i>
+                            <span class="text">Settings</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">
-                            <i class="fa-regular fa-file-lines pe-2"></i>
-                            Master Data
-                        </a>
-                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Achievment</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Gedung</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class=" sidebar-link">User</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Laporan Barang</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Mata Pelajaran</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="./application/views/admin/dashboard.php" class="sidebar-link collapsed">
-                            <i class="fa-solid fa-sliders pe-2"></i>
-                            Dashboard
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-info"></i>
+                            <span class="text">help</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed">
-                            <i class="fa-solid fa-right-from-bracket" style="padding-right: 6px;"></i>
-                            Logout
+                    <li>
+                        <a href="#">
+                            <i class="icon ph-bold ph-sign-out"></i>
+                            <span class="text">Logout</span>
                         </a>
                     </li>
                 </ul>
             </div>
-        </aside>
-        <!-- Main Component -->
-        <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom">
-                <!-- Button for sidebar toggle -->
-                <button class="btn" type="button" data-bs-theme="light">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-            <main class="content px-3 py-2" style="padding: 100px;">
-                <div class="container-fluid">
-                    <div class="mb-3">
-                        <h3>Dashboard</h3>
-                    </div>
-                </div>
-                <div class="pie">
-                    <div class="card" style="width: 450px; height: 350px;">
-                        <div class="card-body">
-                            <h5 class="card-title">Statistik Pengunjung</h5>
-                            <div class="card-text">
-                                <div id="piechart" style="width: 430px; height: 300px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <script src="script.js"></script>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="/application/Style/script.js"></script>
+    <!-- Memuat library JavaScript Bootstrap (diletakkan sebelum penutup tag body) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./application/style/script.js"></script>
 </body>
 
 </html>
