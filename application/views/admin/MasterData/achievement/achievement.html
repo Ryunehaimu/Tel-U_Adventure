@@ -7,7 +7,7 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
         </style>
-        <title>Gedung Page</title> 
+        <title>Achievment Page</title> 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     </head>
     <body>
@@ -38,7 +38,7 @@
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="./application/views/admin/MasterData/achievement.html" class="sidebar-link">Achievment</a>
+                                <a href="/application/views/admin/achievement.html" class="sidebar-link">Achievment</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link">Gedung</a>
@@ -81,7 +81,7 @@
             <main class="content px-3 py-2">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h3>Gedung</h3>
+                        <h3>Achievment</h3>
                     </div>
                 </div>
                 <!--NAVBAR-->
@@ -99,7 +99,7 @@
                         <div class="modal-dialog modal-xl" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="modalinputan">Masukan Data Baru</h5>
+                              <h5 class="modal-title" id="exampleModalLabel">Masukan Data Baru</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -112,17 +112,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                      <label for="inputnamagendung">Nama Gedung</label>
-                                      <input type="text" class="form-control" id="namagedung" placeholder="namagedung">
+                                      <label for="inputnamaachievment">Nama Achievment</label>
+                                      <input type="text" class="form-control" id="namaachievment" placeholder="Nama Achievment">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputdeskripsigendung">Deskripsi Gedung</label>
-                                        <input type="text" class="form-control" id="deskripsigedung" row="3" placeholder="Deskrispis gedung">
+                                        <label for="inputdeskripsiachievement">Deskripsi Achievment</label>
+                                        <input type="text" class="form-control" id="deskripsiachievment" row="3" placeholder="Deskrispis gedung">
                                     </div>
                                     <div class="from-group">
-                                        <label for="inputketerangan">Keterangan</label>
-                                        <input type="text" class="form-control" id="keterangan" row="3" placeholder="Keterangan">
-                                    </div>                                    
+                                        <label for="inputpoin">Pion</label>
+                                        <input type="text" class="form-control" id="poin" row="3" placeholder="Nilai Poin">
+                                    </div>                                     
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -140,9 +140,9 @@
                             <tr class="text-center">
                               <th scope="col">Check</th>
                               <th scope="col">Img</th>
-                              <th scope="col">Nama Gedung</th>
-                              <th scope="col">Deskripsi Gedung</th>
-                              <th scope="col">Keterangan</th>
+                              <th scope="col">Nama Achievment</th>
+                              <th scope="col">Deskripsi Achievment</th>
+                              <th scope="col">Poin Achievment</th>
                               <th scope="col">Status</th>
                               <th scope="col">Action</th>
                             </tr>
@@ -157,9 +157,9 @@
                                     </div>
                                 </th>
                                 <td>img</td>
-                                <td>KU1</td>
-                                <td>gedung kelas panas</td>
-                                <td>banyak pohon tapi panas</td>
+                                <td>Pukul DD 1 kali</td>
+                                <td>memukul dd sepanyak lebih dari 1 kali</td>
+                                <td>1000000000 poin</td>
                                 <td>aktif</td>
                                 <td>
                                     <div class="btn-group">
@@ -182,9 +182,9 @@
                                       </div>
                                   </th>
                                   <td>img</td>
-                                  <td>tult</td>
-                                  <td>gedung baru + paling elit</td>
-                                  <td>paling elit tapi parkiran sulit</td>
+                                  <td>stalking dd lebih dari 1 hari</td>
+                                  <td>mengikuti dd selama lebih dari 1 hari dimanapun kapanpun</td>
+                                  <td>5000000000 poin</td>
                                   <td>aktif</td>
                                   <td>
                                     <div class="btn-group">
@@ -207,9 +207,9 @@
                                       </div>
                                   </th>
                                   <td>img</td>
-                                  <td>Rektorat</td>
-                                  <td>gedung rektor</td>
-                                  <td>ya gedung rektor</td>
+                                  <td>membuat dd kesal</td>
+                                  <td>melakukan hal apapun yang dapat membuat dd kesal selama 1 hari penuh</td>
+                                  <td>1000000000000000000 poin</td>
                                   <td>aktif</td>
                                   <td>
                                     <div class="btn-group">
