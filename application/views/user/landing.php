@@ -106,7 +106,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <h5 class="kata">Lebih dari 70 ribu alumni Telkom University memiliki pengalaman perkuliahan menarik yang membantu mereka memberikan kontribusi untuk Indonesia</h5>
+        <h5 class="kata">Lebih dari 33 ribu mahasiswa Telkom University memiliki pengalaman penggunaan TelU Adventure yang menarik dan membantu mereka</h5>
       </div>
     </div>
     <div class="row" style="margin-top: 70px;">
