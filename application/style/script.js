@@ -1,4 +1,10 @@
-const toggler = document.querySelector(".btn");
-toggler.addEventListener("click", function () {
-    document.querySelector("#sidebar").classList.toggle("collapsed");
+$(".menu > ul > li").click(function(e){
+    $(this).siblings().removeClass("active");
+        $(this).toggleClass("active");
+        $(this).find("ul").slideToggle();
+        $(this).siblings().find("ul").find("li").removeClass("active");
 });
+
+$(".menu-btn").click(function(){
+    $(".sidebar").toggleClass("active");
+})

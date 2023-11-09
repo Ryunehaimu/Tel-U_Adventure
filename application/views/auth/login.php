@@ -1,11 +1,16 @@
 <body>
     <div class="login">
         <div class="div">
-            <img class="logo-telkom" src="./application/Resourse/img/Logo_Telkom_University_potrait2 3.png" />
-            <img class="adventure" src="./application/Resourse/img/Adventure.png" />
+            <img class="logo-telkom" src="./application/assets/img/Logo_Telkom_University_potrait2 3.png" />
+            <img class="adventure" src="./application/assets/img/Adventure.png" />
             <p class="text-wrapper">Jelajahi TelU dengan TelU Adventure</p>
             <div class="text-wrapper-2">Welcome back</div>
             <div class="text-wrapper-3">Username</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <?= $this->session->flashdata("message") ?>
+                </div>
+            </div>
             <form class="loginform" method="post" action="<?= base_url('auth'); ?>">
                 <div class="Username">
                     <input style="width: 480px; height: 60px;padding: 30px; font-family: 'Inter', sans-serif;font-size: 18px;font-weight: normal;color: #999;" type="text" id="username" name="username" placeholder="Masukkan username SSO">
@@ -30,13 +35,13 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./application/Resourse/img/DSC_0218.JPG" class="d-block w-100" alt="...">
+                            <img src="./application/assets/img/DSC_0218.JPG" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="./application/Resourse/img/DSC_0216.JPG" class="d-block w-100" alt="...">
+                            <img src="./application/assets/img/DSC_0216.JPG" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="./application/Resourse/img/DSC_0220.JPG" class="d-block w-100" alt="...">
+                            <img src="./application/assets/img/DSC_0220.JPG" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
