@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('application/style/sidebar.css') ?>" />
-    <!-- <link rel="stylesheet" href="<?= base_url('application/style/style.css') ?>" kontol penyebab masalah ngenteke wektu 4 jam genti seng lio ternyata masalah e iki1   /> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body style="background-color:white">
