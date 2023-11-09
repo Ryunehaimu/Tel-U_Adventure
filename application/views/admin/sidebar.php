@@ -40,7 +40,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/achievment") ?>">
+                                <a href="<?= base_url("admin/Matakuliah") ?>">
                                     <span class="text">Mata Kuliah</span>
                                 </a>
                             </li>
@@ -50,12 +50,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/achievment") ?>">
+                                <a href="<?= base_url("admin/LaporanBarangHilang") ?>">
                                     <span class="text">Laporan Barang Hilang</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/achievment") ?>">
+                                <a href="<?= base_url("admin/LaporanBarangDitemukan") ?>">
                                     <span class="text">Laporan Barang Ditemukan</span>
                                 </a>
                             </li>
@@ -75,16 +75,10 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="icon ph-bold ph-info"></i>
-                        <span class="text">help</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Logout</span>
                     </a>
                 </li>
             </ul>
         </div>
-    </div>
+    </div>
