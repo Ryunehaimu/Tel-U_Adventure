@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="container" style="padding:40px">
-                <table class="table" id="dataTabel">
+                <table class="table table-bordered" id="dataTabel">
                     <thead>
                         <tr>
                             <th scope="col">Nama Achievement</th>
