@@ -1,13 +1,3 @@
-<nav class="navbar bg-body-tertiary" style="background-color:white;">
-            <div class="container-fluid">
-                <a class="navbar-brand"></a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-
         <div class="card" style="widht:1600px;height:400px;margin-top:50px">
 
             <div class="row">
@@ -26,7 +16,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Achievement</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                <button type="button" class="btn-close" style="border:none" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -58,7 +48,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                <button type="button" class="btn-close" style="border:none" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-12">

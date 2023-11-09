@@ -1,50 +1,68 @@
-<nav class="navbar bg-body-tertiary" style="background-color:white;">
-            <div class="container-fluid">
-                <a class="navbar-brand"></a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+<div class="atas" style="padding: 30px">
+<p style="font-size: 40px; font-family: Inter; font-weight: 600; word-wrap: break-word">Dashboard / Profil</p>
+</div>
+<div class="row" style="margin-top: 20px">
+  <div class="col-md-4">
+    <div class="card" style="widht:500px;height:500px;  display: flex; flex-direction: column; align-items: center; justify-content: center;  text-align: center;">
+      <div class="content">
+        <img src="<?= base_url("application/assets/img/profil.png")?>" style="width: 70%; height: 70%; border-radius: 9999px;">
+        <p style="font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word">DAVID GHOLI RAHMADANA</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card" style="widht:1000px;height:500px">
+      <div class="content">
+        <p style="font-size: 40px; font-family: Inter; font-weight: 600; word-wrap: break-word; margin-left: 50px; margin-top: 20px">Edit Profil</p>
+      </div>
+      <div class="form" style="padding: 40px; font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word; padding-top: 10px">
+        <form>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="firstName">Nama Depan</label>
             </div>
-        </nav>
-
-        <div class="card" style="widht:1600px;height:400px;margin-top:50px">
-          <h1>DAVID GHOLI RAHMADANA</h1>
-          <p style="margin-top: -15px;"><span><a href="">Dashboard</a> / </span><span><a href="#" id="editProfileLink">Profil</a></span></p>
-          <div class="content-container">
-            <div class="background-1" style="position: absolute;">
-              <div class="content">
-                <img src="profil.png" alt="Foto Profil Anda">
-                <h2>DAVID GHOLI RAHMADANA</h2>
-                <p class="single-line">
-                  100
-                </p>
-                <p class="single-line">
-                  Achievement
-                </p>
-              </div>
-            </div>
-
-            <div class="background-2" style="position: absolute;">
-              <div class="content">
-                <h2>Edit Profil</h2>
-              </div>
-              <div class="form">
-                <form>
-                  <label for="firstName">Nama Depan</label>
-                  <input type="text" id="firstName" name="firstName" value="DAVID">
-                  <label for="lastName">Nama Belakang</label>
-                  <input type="text" id="lastName" name="lastName" value="GHOLI RAHMADANA">
-                  <label for="NIM">NIM</label>
-                  <input type="text" id="NIM" name="NIM" value="1302213079">
-                  <label for="class">Kelas</label>
-                  <input type="text" id="class" name="class" value="SE4501">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" value="davidgholirahmadana@student.telkomuniversity.ac.id" disabled>
-                </form>
-              </div>
-              <div class="button-container">
-                <button type="submit">Kirim</button>
-              </div>
+            <div class="col-md-8">
+              <input style="width: 400px;padding-left:10px" type="text" id="firstName" name="firstName" value="DAVID">
             </div>
           </div>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label for="lastName">Nama Belakang</label>
+            </div>
+            <div class="col-md-8">
+              <input style="width: 400px;padding-left:10px" type="text" id="lastName" name="lastName" value="GHOLI RAHMADANA">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label for="NIM">NIM</label>
+            </div>
+            <div class="col-md-8">
+              <input style="width: 400px;padding-left:10px" type="text" id="NIM" name="NIM" value="1302213079">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label for="class">Kelas</label>
+            </div>
+            <div class="col-md-8">
+              <input style="width: 400px;padding-left:10px" type="text" id="class" name="class" value="SE4501">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label for="email">Email</label>
+            </div>
+            <div class="col-md-8">
+              <input style="width: 400px;padding-left:10px" type="email" id="email" name="email" value="davidgholirahmadana@employee.telkomuniversity.ac.id" disabled>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button type="submit" style="color: white;padding-left:10px;font-family: Inter; font-weight: 600; word-wrap: break-word; width: 100px; height; 100px; margin-left: 570px; background: #F30606; border-radius: 5px; padding: 5px">Submit</button>
+    </div>
+  </div>
+</div>
+
+
+  

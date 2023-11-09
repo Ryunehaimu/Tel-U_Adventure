@@ -20,16 +20,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
+                        <label for="nama" class="form-label">Nama Matakuliah</label>
                         <input class="form-control" id="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="nim" class="form-label">Nim</label>
-                        <input class="form-control" id="nim">
+                        <label for="nim" class="form-label">Kode Matkuliah</label>
+                        <input class="form-control" id="kode">
                     </div>
                     <div class="mb-3">
-                        <label for="angkatan" class="form-label">Angkatan</label>
-                        <input class="form-control" id="angkatan">
+                        <label for="angkatan" class="form-label">Dosen Pengampu</label>
+                        <input class="form-control" id="dosen">
                     </div>
                 </div>
                 <div class="modal-footer">
