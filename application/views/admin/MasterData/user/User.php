@@ -1,3 +1,13 @@
+<nav class="navbar bg-body-tertiary" style="background-color:white;">
+            <div class="container-fluid">
+                <a class="navbar-brand"></a>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
         <div class="card" style="widht:1600px;height:400px;margin-top:50px">
 
             <div class="row">
@@ -57,8 +67,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" id="confirmDeleteBtn" class="btn btn-primary" style="background-color:red;">Delete</button>
-
+                                <button type="button" class="btn btn-primary" style="background-color:red;">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -115,15 +124,9 @@
             document.getElementById('nama').value = '';
             document.getElementById('nim').value = '';
             document.getElementById('angkatan').value = '';
-
-            // Add event listener for the delete button in the new row
-            var deleteBtn = cell5.querySelector('.btn-danger');
-            deleteBtn.addEventListener('click', function () {
-                // Open the delete confirmation modal
-                $('#Delete').modal('show');
-            });
         });
-        document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
-        $('#Delete').modal('hide');
-        });
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
     </script>
