@@ -74,11 +74,20 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="<?=base_url("Welcome")?>">
                         <i class="icon ph-bold ph-sign-out"></i>
                         <span class="text">Logout</span>
                     </a>
                 </li>
             </ul>
-        </div>
-    </div>
+            <dialog id="logoutModal" class="logout-dialog">
+                <div>
+                    <p>Apakah Anda yakin ingin logout?</p>
+                    <button id="logoutYes">Iya</button>
+                    <button id="logoutNo">Tidak</button>
+                </div>
+            </dialog>
+
+    </div>
+</div>
+

@@ -220,3 +220,37 @@ body {
     background-color: #fff;
     box-shadow: 0px 10px 8px rgba(0, 0, 0, 0, 1);
 }
+
+.logout-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-dialog p {
+    margin-bottom: 15px;
+}
+
+.logout-dialog button {
+    padding: 8px 16px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-dialog button#logoutYes {
+    background-color: #FF4136;
+    color: white;
+}
+
+.logout-dialog button#logoutNo {
+    background-color: #4CAF50;
+    color: white;
+}
+
