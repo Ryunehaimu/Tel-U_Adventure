@@ -5,7 +5,7 @@
   <div class="col-md-4">
     <div class="card" style="widht:500px;height:500px;  display: flex; flex-direction: column; align-items: center; justify-content: center;  text-align: center;">
       <div class="content">
-        <img src="<?= base_url("application/assets/img/profil.png")?>" style="width: 70%; height: 70%; border-radius: 9999px;">
+        <img src="<?= base_url("application/assets/img/fadhil.png")?>" style="width: 70%; height: 70%; border-radius: 9999px;">
         <p style="font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word">DAVID GHOLI RAHMADANA</p>
       </div>
     </div>

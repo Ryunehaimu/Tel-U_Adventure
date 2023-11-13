@@ -1,4 +1,4 @@
-        <div class="card" style="widht:1600px;height:400px;margin-top:50px">
+<div class="card" style="widht:1600px;height:400px;margin-top:50px">
 
             <div class="row">
                 <div class="col-md-8">
@@ -28,8 +28,8 @@
                                     <input class="form-control" id="jenisBarang">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tanggalLaporan" class="form-label">Tanggal Laporan</label>
-                                    <input type="date" class="form-control" id="tanggalLaporan" >
+                                    <label for="tanggal" class="form-label">Tanggal Dilaporkan</label>
+                                    <input type="date" class="form-control" id="tanggal" >
                                 </div>
                                 <div class="mb-3">
                                     <label for="deskripsiBarang" class="form-label">Deskripsi Barang</label>
@@ -50,54 +50,82 @@
             </div>
             <!--Modal hapus-->
                     
-            <div class="row">
-                <div class="modal fade" id="Delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-12">
-                                    <p>Apakah kamu yakin?</p>
+            <!--Modal Edit-->
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit Laporan Barang Hilang</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form for editing user -->
+                            <form id="editForm">
+                                <div class="form-group">
+                                    <label for="editNamaBarang">Nama Barang:</label>
+                                    <input type="text" class="form-control" id="editNamaBarang" required>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" style="background-color:red;">Delete</button>
-                            </div>
+                                <div class="form-group">
+                                    <label for="editJenisBarang">Jenis Barang:</label>
+                                    <input type="text" class="form-control" id="editJenisBarang" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editTanggal">Tanggal Dilaporkan:</label>
+                                    <input type="date" class="form-control" id="editTanggal" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editDeskripsiBarang">Deskripsi Barang:</label>
+                                    <input type="text" class="form-control" id="editDeskripsiBarang" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editStatus">Status:</label>
+                                    <input type="text" class="form-control" id="editStatus" required>
+                                </div>
+                                <button type="button" class="btn btn-primary" id="saveEdit">Save Changes</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container"  style="padding:40px">
+        
+            <!-- deletemodal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Hapus Barang Hilang</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Apakah anda yakin menghapus barang ini?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-danger" id="confirmDelete" data-bs-dismiss="modal" aria-label="Close">Hapus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="padding:40px">
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Jenis Barang</th>
-                    <th scope="col">Tanggal Laporan</th>
+                    <th scope="col">Tanggal Ditemukan</th>
                     <th scope="col">Deskripsi Barang</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>ktm</td>
-                    <td>kartu</td>
-                    <td>2003-11-07</td>
-                    <td>ktm telyu</td>
-                    <td>Sudah ditemukan</td>
-                    <td>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#User"><img src="<?=base_url("application/assets/img/edit putih.png")?>"></button>
-                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Delete"><img src="<?=base_url("application/assets/img/hapus putih.png")?>"></button>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody id="userTableBody">
+                </tbody>  
               </table>
             </div>
           </div>
@@ -105,39 +133,146 @@
     </div>
     <!-- Tambahkan JavaScript untuk menangani saat tombol "Save changes" pada modal "Tambah User" ditekan -->
     <script>
-      document.getElementById('saveLaporanBarangHilang').addEventListener('click', function() {
-          var namaBarang = document.getElementById('namaBarang').value;
-          var jenisBarang = document.getElementById('jenisBarang').value;
-          var tanggalLaporan = document.getElementById('tanggalLaporan').value;
-          var deskripsiBarang = document.getElementById('deskripsiBarang').value;
-          var status = document.getElementById('status').value;
-          // Membuat baris baru di tabel
-          var table = document.querySelector('.table tbody');
-          var newRow = table.insertRow(table.rows.length);
+        let users = [];
 
-          var cell1 = newRow.insertCell(0);
-          var cell2 = newRow.insertCell(1);
-          var cell3 = newRow.insertCell(2);
-          var cell4 = newRow.insertCell(3);
-          var cell5 = newRow.insertCell(4);
-          var cell6 = newRow.insertCell(5);
-          var cell7 = newRow.insertCell(6);
+        function addUserToTable(user) {
+            let tableBody = document.getElementById("userTableBody");
+            let newRow = tableBody.insertRow();
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            let cell3 = newRow.insertCell(2);
+            let cell4 = newRow.insertCell(3);
+            let cell5 = newRow.insertCell(4);
+            let cell6 = newRow.insertCell(5);
+            let cell7 = newRow.insertCell(6);
 
-          cell1.innerHTML = table.rows.length;
-          cell2.innerHTML = namaBarang;
-          cell3.innerHTML = jenisBarang;
-          cell4.innerHTML = tanggalLaporan;
-          cell5.innerHTML = deskripsiBarang;
-          cell6.innerHTML = status;
-          cell7.innerHTML = '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#User"><img src="<?=base_url("application/assets/img/edit putih.png")?>"></button> ' + '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Delete"><img src="<?=base_url("application/assets/img/hapus putih.png")?>"></button>';
+            cell1.innerHTML = user.no;
+            cell2.innerHTML = user.namaBarang;
+            cell3.innerHTML = user.jenisBarang;
+            cell4.innerHTML = user.tanggal;
+            cell5.innerHTML = user.deskripsiBarang;
+            cell6.innerHTML = user.status;
 
-          // Reset nilai input setelah disimpan
-          document.getElementById('namaBarang').value = '';
-          document.getElementById('jenisBarang').value = '';
-          document.getElementById('tanggalLaporan').value = '';
-          document.getElementById('deskripsiBarang').value = '';
-          document.getElementById('status').value = '';
-          // Tutup modal
-      });
-    </script>
+            // Tombol Edit
+            let editButton = document.createElement("button");
+            editButton.type = "button";
+            editButton.className = "btn btn-primary";
+            editButton.innerHTML = '<img src="<?=base_url("application/assets/img/edit putih.png")?>">';
+            editButton.addEventListener("click", function() {
+                editUser(user.no - 1);
+            });
+            cell7.appendChild(editButton);
 
+            // Tombol Delete
+            let deleteButton = document.createElement("button");
+            deleteButton.type = "button";
+            deleteButton.className = "btn btn-danger";
+            deleteButton.innerHTML = '<img src="<?=base_url("application/assets/img/hapus putih.png")?>">';
+            deleteButton.addEventListener("click", function() {
+                openDeleteModal(user.no - 1);
+            });
+            cell7.appendChild(deleteButton);
+        }
+
+        document.getElementById('saveLaporanBarangHilang').addEventListener('click', function() {
+            var namaBarang = document.getElementById('namaBarang').value;
+            var jenisBarang = document.getElementById('jenisBarang').value;
+            var tanggal = document.getElementById('tanggal').value;
+            var deskripsiBarang = document.getElementById('deskripsiBarang').value;
+            var status = document.getElementById('status').value;
+
+            var user = {
+                no: users.length + 1,
+                namaBarang: namaBarang,
+                jenisBarang: jenisBarang,
+                tanggal: tanggal,
+                deskripsiBarang: deskripsiBarang,
+                status: status
+            };
+
+            // Tambahkan user ke dalam tabel
+            addUserToTable(user);
+
+            // Tambahkan user ke dalam array users
+            users.push(user);
+
+            // Kosongkan input dalam modal
+            document.getElementById('namaBarang').value = '';
+            document.getElementById('jenisBarang').value = '';
+            document.getElementById('tanggal').value = '';
+            document.getElementById('deskripsiBarang').value = '';
+            document.getElementById('status').value = '';
+        });
+
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('btn-danger')) {
+                openDeleteModal(e.target.parentNode.parentNode.cells[0].innerText - 1);
+            }
+        });
+
+        function openDeleteModal(index) {
+            $('#deleteModal').modal('show');
+            document.getElementById("confirmDelete").onclick = function () {
+                deleteBarang(index);
+                $('#deleteModal').modal('hide');
+            };
+        }
+
+        function deleteBarang(index) {
+            users.splice(index, 1);
+            refreshTable();
+        }
+
+        function refreshTable() {
+            let tableBody = document.getElementById("userTableBody");
+            tableBody.innerHTML = "";
+
+            for (let i = 0; i < users.length; i++) {
+                addUserToTable(users[i]);
+            }
+        }
+
+        function editUser(index) {
+            let user = users[index];
+            console.log(user);
+            console.log(index);
+            document.getElementById('editNamaBarang').value = user.namaBarang;
+            document.getElementById('editJenisBarang').value = user.jenisBarang;
+            document.getElementById('editTanggal').value = user.tanggal;
+            document.getElementById('editDeskripsiBarang').value = user.deskripsiBarang;
+            document.getElementById('editStatus').value = user.status;
+
+            $('#editModal').modal('show');
+
+            document.getElementById("saveEdit").onclick = function () {
+                saveEdit(index);
+                $('#editModal').modal('hide');
+            };
+        }
+
+        function saveEdit(index) {
+            let newNamaBarang = document.getElementById("editNamaBarang").value;
+            let newJenisBarang = document.getElementById("editJenisBarang").value;
+            let newTanggal = document.getElementById("editTanggal").value;
+            let newDeskripsiBarang = document.getElementById("editDeskripsiBarang").value;
+            let newStatus = document.getElementById("editStatus").value;
+
+            users[index].namaBarang = newNamaBarang;
+            users[index].jenisBarang = newJenisBarang;
+            users[index].tanggal = newTanggal;
+            users[index].deskripsiBarang = newDeskripsiBarang;
+            users[index].status = newStatus;
+            refreshTable();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Sample initial data
+            users = [
+                { no:"1", namaBarang: "KTM", jenisBarang:"Kertu", tanggal:"2003-11-07", deskripsiBarang:"KTM TELYU", status:"belum ditemukan"},
+            ];
+
+            // Populate the table
+            refreshTable();
+        });
+
+    </script>

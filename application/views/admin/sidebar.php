@@ -75,19 +75,27 @@
         </div>
         <div class="menu">
             <p class="title">Account</p>
-            <ul>
-                <li>
-                    <a href="<?= base_url("admin/setting") ?>">
-                        <i class="icon ph-bold ph-gear"></i>
-                        <span class="text">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon ph-bold ph-sign-out"></i>
-                        <span class="text">Logout</span>
-                    </a>
-                </li>
-            </ul>
+                <ul>
+                    <li>
+                        <a href="<?= base_url("admin/setting") ?>">
+                            <i class="icon ph-bold ph-gear"></i>
+                            <span class="text">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?=base_url("Welcome")?>">
+                            <i class="icon ph-bold ph-sign-out"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+                <dialog id="logoutModal" class="logout-dialog">
+                    <div>
+                        <p>Apakah Anda yakin ingin logout?</p>
+                        <button id="logoutYes">Iya</button>
+                        <button id="logoutNo">Tidak</button>
+                    </div>
+                </dialog>
+
         </div>
     </div>
