@@ -17,7 +17,6 @@
                             <form class="was-validated" novalidate>
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah User</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
@@ -44,7 +43,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" id="saveUser" class="btn btn-primary">Save changes</button>
+                                    <button type="button" id="saveUserBtn" class="btn btn-primary">Save</button>
                                 </div>
                             </form>
                             <!-- <form action="/action_page.php" class="was-validated">
@@ -139,151 +138,68 @@
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
+                        <?php
+                        $count = 0;
+                        foreach ($datauser as $row) {
+                            $count++;
+                        ?>
+                            <tr>
+                                <td><?= $count ?></td>
+                                <td><?= $row->Nama ?></td>
+                                <td><?= $row->NIM ?></td>
+                                <td><?= $row->Angkatan ?></td>
+                                <td>
+                                    <!-- Edit button -->
+                                    <button type="button" class="btn btn-primary" onclick="editUser(<?= $count - 1 ?>)">
+                                        <img src="<?= base_url("application/assets/img/edit putih.png") ?>">
+                                    </button>
+                                    
+                                    <!-- Delete button -->
+                                    <button type="button" class="btn btn-danger" onclick="openDeleteModal(<?= $count - 1 ?>)">
+                                        <img src="<?= base_url("application/assets/img/hapus putih.png") ?>">
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- Tambahkan JavaScript untuk menangani saat tombol "Save changes" pada modal "Tambah User" ditekan -->
     <script>
-        'use strict'
+        document.getElementById('saveUserBtn').addEventListener('click', saveUser);
+        function editUser(index) {
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-            }
-
-            form.classList.add('was-validated')
-        }, false)
-        })
-
-        let users = [];
-
-        function addUserToTable(user) {
-            let tableBody = document.getElementById("userTableBody");
-            let newRow = tableBody.insertRow();
-            let cell1 = newRow.insertCell(0);
-            let cell2 = newRow.insertCell(1);
-            let cell3 = newRow.insertCell(2);
-            let cell4 = newRow.insertCell(3);
-            let cell5 = newRow.insertCell(4);
-
-            cell1.innerHTML = user.no;
-            cell2.innerHTML = user.name;
-            cell3.innerHTML = user.nim;
-            cell4.innerHTML = user.angkatan;
-
-            // Tombol Edit
-            let editButton = document.createElement("button");
-            editButton.type = "button";
-            editButton.className = "btn btn-primary";
-            editButton.innerHTML = '<img src="<?=base_url("application/assets/img/edit putih.png")?>">';
-            editButton.addEventListener("click", function() {
-                editUser(user.no - 1);
-            });
-            cell5.appendChild(editButton);
-
-            // Tombol Delete
-            let deleteButton = document.createElement("button");
-            deleteButton.type = "button";
-            deleteButton.className = "btn btn-danger";
-            deleteButton.innerHTML = '<img src="<?=base_url("application/assets/img/hapus putih.png")?>">';
-            deleteButton.addEventListener("click", function() {
-                openDeleteModal(user.no - 1);
-            });
-            cell5.appendChild(deleteButton);
+            $('#editModal').modal('show');
+            console.log("Edit user with index: " + index);
         }
 
-        document.getElementById('saveUser').addEventListener('click', function() {
+        function openDeleteModal(index) {
+            $('#deleteModal').modal('show');
+            console.log("Delete user with index: " + index);
+        }
+        function saveUser() {
             var nama = document.getElementById('nama').value;
             var nim = document.getElementById('nim').value;
             var angkatan = document.getElementById('angkatan').value;
 
-            var user = {
-                no: users.length + 1,
-                name: nama,
-                nim: nim,
-                angkatan: angkatan
-            };
-
-            // Tambahkan user ke dalam tabel
-            addUserToTable(user);
-
-            // Tambahkan user ke dalam array users
-            users.push(user);
-
-            // Kosongkan input dalam modal
-            document.getElementById('nama').value = '';
-            document.getElementById('nim').value = '';
-            document.getElementById('angkatan').value = '';
-        });
-
-        document.addEventListener('click', function(e) {
-            if (e.target && e.target.classList.contains('btn-danger') && e.target.innerText === 'Delete') {
-                deleteRow(e.target);
-            }
-        });
-
-        function openDeleteModal(index) {
-            $('#deleteModal').modal('show');
-            document.getElementById("confirmDelete").onclick = function () {
-                deleteUser(index);
-                $('#deleteModal').modal('hide');
-            };
+            $.ajax({
+                type: "POST",
+                url: "your_server_endpoint",
+                data: {
+                    nama: nama,
+                    nim: nim,
+                    angkatan: angkatan
+                },
+                success: function (response) {
+                    $('#User').modal('hide');
+                    console.log("User added successfully");
+                },
+                error: function (error) {
+                    console.error("Error adding user:", error);
+                }
+            });
         }
-
-        function deleteUser(index) {
-            users.splice(index, 1);
-            refreshTable();
-        }
-
-        function refreshTable() {
-            let tableBody = document.getElementById("userTableBody");
-            tableBody.innerHTML = "";
-
-            for (let i = 0; i < users.length; i++) {
-                addUserToTable(users[i]);
-            }
-        }
-
-        function editUser(index) {
-            let user = users[index];
-            document.getElementById("editName").value = user.name;
-            document.getElementById("editNim").value = user.nim;
-            document.getElementById("editAngkatan").value = user.angkatan;
-
-            $('#editModal').modal('show');
-
-            document.getElementById("saveEdit").onclick = function () {
-                saveEdit(index);
-                $('#editModal').modal('hide');
-            };
-        }
-
-        function saveEdit(index) {
-            let newName = document.getElementById("editName").value;
-            let newNim = document.getElementById("editNim").value;
-            let newAngkatan = document.getElementById("editAngkatan").value;
-
-            users[index].name = newName;
-            users[index].nim = newNim;
-            users[index].angkatan = newAngkatan;
-            refreshTable();
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            // Sample initial data
-            users = [
-                { no:"1", name: "Gyaat", nim: "212121", angkatan: "1998" },
-            ];
-
-            // Populate the table
-            refreshTable();
-        });
     </script>
