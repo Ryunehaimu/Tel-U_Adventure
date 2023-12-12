@@ -8,9 +8,13 @@ class M_USER extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
-    public function addUser($userData)
-    {
-        $this->db->insert('telu_adventure', $userData);
+    public function tambah_data($data) {
+        $this->db->insert('sso', $data);
+    }
+
+    public function delete($where,$table){
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 }
 

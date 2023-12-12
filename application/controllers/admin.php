@@ -6,7 +6,7 @@ class admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('MasterData/User/M_USER');
+        $this->load->model('MasterData/User/M_USER','model');
     }
 
     public function index()
@@ -20,7 +20,7 @@ class admin extends CI_Controller
 
     public function user()
     {
-        $datauser = $this->M_USER->getDataUser();
+        $datauser = $this->model->getDataUser();
         $list = array('datauser'=>$datauser);
         $data['title'] = 'Master Data User';
         $this->load->view('admin/header', $data);
@@ -29,23 +29,47 @@ class admin extends CI_Controller
         $this->load->view('admin/footer');
     }
 
-    public function saveUser()
+    public function create()
     {
-        $nama = $this->input->post('nama');
-        $nim = $this->input->post('nim');
-        $angkatan = $this->input->post('angkatan');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nim', 'NIM', 'required');
+        $this->form_validation->set_rules('angkatan', 'Angkatan', 'required');
 
-        $userData = array(
-            'Nama' => $nama,
-            'NIM' => $nim,
-            'Angkatan' => $angkatan
-        );
-
-        $this->M_USER->addUser($userData);
-        
-        echo json_encode(['status' => 'success']);
+        if ($this->form_validation->run()) 
+        {
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'nim' => $this->input->post('nim'),
+                'angkatan' => $this->input->post('angkatan')
+            );
+            $datauser = $this->model->tambah_data($data);
+            return redirect(base_url('admin/user'));
+        }
+        return redirect(base_url('admin/user'));
     }
+    
+    public function delete($id)
+    {
+        $where = array('NIM' => $id);
 
+        $this->model->delete($where,'sso');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+        Data berhasil Dihapus! <button type="button" clase="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        return redirect(base_url('admin/user'));
+    }
+    
+
+    public function update() {
+        $nim = $this->input->post('editNim');
+        $nama = $this->input->post('editName');
+        $angkatan = $this->input->post('editAngkatan');
+    
+        $this->db->where('NIM', $nim);
+        $this->db->update('sso', array('Nama' => $nama, 'Angkatan' => $angkatan));
+    
+        return redirect(base_url('admin/user'));
+    }
+    
     public function achievment()
     {
         $data['title'] = 'Master Data User';

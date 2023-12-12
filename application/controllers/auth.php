@@ -27,18 +27,30 @@ class auth extends CI_Controller
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-
+    
         $user = $this->db->get_where('sso', ['Username' => $username])->row_array();
+    
         if ($user) {
             if (password_verify($password, $user['Password'])) {
+                session_start();
+                $userdata = [
+                    'user_id' => $user['NIM'],
+                    'username' => $user['Username'],
+                    'nama' => $user['nama'],
+                    'angkatan' => $user['angkatan'],
+                ];
+    
+                $this->session->set_userdata($userdata);
+    
                 redirect('admin');
             } else {
-                $this->session->set_flashdata('message', '<div class ="alert alert-danger" role="alert">Password salah!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah!</div>');
                 redirect(base_url('auth'));
             }
         } else {
-            $this->session->set_flashdata('message', '<div class ="alert alert-danger" role="alert">Username tidak terdaftar!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username tidak terdaftar!</div>');
             redirect(base_url('auth'));
         }
     }
+    
 }
