@@ -1,4 +1,4 @@
-<div class="card" style="widht:1600px;height:600px;margin-top:50px">
+    <div class="card" style="widht:1600px;height:600px;margin-top:50px">
 
             <div class="row">
                 <div class="col-md-6">
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="editNim">NiM:</label>
-                                    <input type="text" class="form-control" id="editNim" name="editNim" required>
+                                    <input type="text" class="form-control" id="editNim" name="editNim" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="editAngkatan">Angkatan:</label>

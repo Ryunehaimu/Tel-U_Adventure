@@ -1,10 +1,6 @@
 <nav class="navbar bg-body-tertiary" style="background-color:white;width: 100%;height:80px;potition:fixed !important;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid">
         <a class="navbar-brand"></a>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" style="height: 50px;width:250px;" placeholder="Search" aria-label="Search">
-            <button class="btnserch" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 <div class="container">
@@ -21,10 +17,10 @@
                 <p style="color:white" class="name">Fadhil</p>
             </div>
         </div>
-        <div class="nav">
+        <div class="nav" style="margin-left:-5px">
             <div class="menu">
                 <p class="title">Main</p>
-                <ul>
+                <ul style="margin-left:-20px">
                     <li class="active">
                         <a href="<?= base_url("admin") ?>">
                             <i class="icon ph-bold ph-house-simple"></i>
@@ -49,7 +45,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/Matakuliah") ?>">
+                                <a href="<?= base_url("con_matkul") ?>">
                                     <span class="text">Mata Kuliah</span>
                                 </a>
                             </li>
@@ -75,7 +71,7 @@
         </div>
         <div class="menu">
             <p class="title">Account</p>
-                <ul>
+                <ul style="margin-left:-20px">
                     <li>
                         <a href="<?= base_url("admin/setting") ?>">
                             <i class="icon ph-bold ph-gear"></i>

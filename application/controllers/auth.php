@@ -41,7 +41,6 @@ class auth extends CI_Controller
                 ];
     
                 $this->session->set_userdata($userdata);
-    
                 redirect('admin');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah!</div>');

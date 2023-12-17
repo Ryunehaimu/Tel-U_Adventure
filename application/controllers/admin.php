@@ -78,14 +78,6 @@ class admin extends CI_Controller
         $this->load->view('admin/MasterData/achievement/achievement');
         $this->load->view('admin/footer');
     }
-    public function Matakuliah()
-    {
-        $data['title'] = 'Master Data MataKuliah';
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/sidebar');
-        $this->load->view('admin/MasterData/Matakuliah/index');
-        $this->load->view('admin/footer');
-    }
     public function gedung()
     {
         $data['title'] = 'Master Data User';
