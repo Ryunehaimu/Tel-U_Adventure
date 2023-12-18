@@ -40,7 +40,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/achievment") ?>">
+                                <a href="<?= base_url("con_achievement") ?>">
                                     <span class="text">Achievment</span>
                                 </a>
                             </li>
@@ -50,17 +50,17 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/gedung") ?>">
+                                <a href="<?= base_url("con_gedung") ?>">
                                     <span class="text">Gedung</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/LaporanBarangHilang") ?>">
+                                <a href="<?= base_url("con_hilang") ?>">
                                     <span class="text">Laporan Barang Hilang</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url("admin/LaporanBarangDitemukan") ?>">
+                                <a href="<?= base_url("con_temu") ?>">
                                     <span class="text">Laporan Barang Ditemukan</span>
                                 </a>
                             </li>

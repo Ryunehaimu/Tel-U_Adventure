@@ -96,10 +96,12 @@
                         </tr>
                     </thead>
                     <?php
+                        $count=0;
                         foreach ($datamk as $row) {
+                            $count++;
                     ?>
                     <tr>
-                        <td><?= $row->id ?></td>
+                        <td><?= $count ?></td>
                         <td><?= $row->Nama ?></td>
                         <td><?= $row->Kode ?></td>
                         <td><?= $row->DosenPengampu ?></td>

@@ -1,232 +1,147 @@
-<div class="wrapper">
-        <!-- Komponen Utama -->
-        <div class="container-fluid">
-            <div class="card" style="margin-top:40px">
-                <div class="main">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 style="padding:40px;">Master Data - Gedung</h3>
+        <div class="card" style="widht:1600px;height:600px;margin-top:50px">
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3 style="padding:40px;">Master Data - Gedung</h3>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end" style="padding:40px">
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#User">
+                    + Tambah</button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="row">
+            <div class="modal fade" id="User" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Gedung</h1>
+                        </div>
+                        <div class="modal-body">
+                            <form class="was-validated" method="post" action="<?= base_url("con_gedung/create") ?>" novalidate>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama</label>
+                                    <input class="form-control" id="nama" name="nama" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid name.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                    <input class="form-control" id="deskripsi" name="deskripsi" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid deskripsi.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="keterangan" class="form-label">Keterangan</label>
+                                    <input class="form-control" id="keterangan" name="keterangan" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid keterangan.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-md-6 d-flex justify-content-end" style="padding:40px">
-                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal">
-                            + Tambah</button>
-                    </div>
-                </div>
-                    <main class="content">
-                        <!-- Navbar -->
-                        <nav class="navbar bg-body-tertiary" style="height: 100%;">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="modalinputan">Masukkan Data Baru</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form id="formModalTambah" role="search" action="/proses-formulir" method="post">
-                                                        <div class="container-fluid">
-                                                            <div class="row">
-                                                                <label for="inputgambar">Input Gambar</label>
-                                                                <div class="d-flex">
-                                                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                                                    <button class="btn btn-outline-secondary" type="button" id="upload">Upload</button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row" style="width: 103%;">
-                                                                <label for="inputnamagendung">Nama Gedung</label>
-                                                                <input type="text" class="form-control" id="namagedung" placeholder="Nama Gedung">
-                                                            </div>
-                                                            <div class="row" style="width: 103%;">
-                                                                <label for="inputdeskripsigendung">Deskripsi Gedung</label>
-                                                                <input type="text" class="form-control" id="deskripsigedung" placeholder="Deskripsi Gedung">
-                                                            </div>
-                                                            <div class="row" style="width: 103%;">
-                                                                <label for="inputketerangan">Keterangan</label>
-                                                                <input type="text" class="form-control" id="keterangan" placeholder="Keterangan">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                    <button type="button" class="btn btn-primary" id="tambah" onclick="tambahdata()">Submit</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                        <!--Modal Edit-->
-                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="editModalLabel">Edit User</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!-- Form for editing user -->
-                                        <form id="editForm">
-                                            <div class="form-group">
-                                                <label for="inputgambar">Input Gambar</label>
-                                                    <div class="d-flex">
-                                                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                                                    <button class="btn btn-outline-secondary" type="button" id="upload">Upload</button>
-                                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="editNim">NiM:</label>
-                                                <input type="text" class="form-control" id="editNim" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="editAngkatan">Angkatan:</label>
-                                                <input type="text" class="form-control" id="editAngkatan" required>
-                                            </div>
-                                            <button type="button" class="btn btn-primary" id="saveEdit">Save Changes</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="delete">
-                            <div class="modal fade" id="Delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="mb-12">
-                                                <p>Apakah kamu yakin?</p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                            <button type="button" class="btn btn-primary" style="background-color:red;">Hapus</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="table" style="padding: 40px;">
-                            <table class="table table-bordered" id="tabel">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th scope="col">Gambar</th>
-                                        <th scope="col">Nama Gedung</th>
-                                        <th scope="col">Deskripsi Gedung</th>
-                                        <th scope="col">Keterangan</th>
-                                        <th scope="col">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>img</td>
-                                        <td>KU1</td>
-                                        <td>gedung kelas panas</td>
-                                        <td>banyak pohon tapi panas</td>
-                                        <td style="text-align:center;">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-                                            <button type="button" class="btn btn-danger hapus-btn" data-bs-toggle="modal" data-bs-target="#Delete">Hapus</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </main>
                 </div>
             </div>
         </div>
+        <!--Modal Edit-->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="<?= base_url("con_gedung/update") ?>">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="editid" name="editid">
+                                <label for="editName">Nama</label>
+                                <input type="text" class="form-control" id="editName" name="editName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editdeskripsi">Deskripsi</label>
+                                <input type="text" class="form-control" id="editdeskripsi" name="editdeskripsi" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editketerangan">Keterangan</label>
+                                <input type="text" class="form-control" id="editketerangan" name="editketerangan" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" >Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding:40px;">
+            <table id="example" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Deskripsi</th>
+                        <th>Keterangan</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <?php
+                    $count = 0;
+                    foreach ($datagd as $row) {
+                        $count++;
+                    ?>
+                        <tr>
+                            <td><?= $count ?></td>
+                            <td><?= $row->Nama ?></td>
+                            <td><?= $row->Deskripsi ?></td>
+                            <td><?= $row->Keterangan ?></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="openEditModal('<?= $row->id ?>', '<?= $row->Nama ?>', '<?= $row->Deskripsi ?>', '<?= $row->Keterangan ?>')" id="editBtn_<?= $row->id ?>">
+                                    <img src="<?= base_url("application/assets/img/edit putih.png") ?>">
+                                </button>
+                                <!-- Delete button -->
+                                <a href="<?= base_url("con_gedung/delete/".$row->id)?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus data ini?')">
+                                    <img src="<?= base_url("application/assets/img/hapus putih.png") ?>">
+                                </a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#formModalTambah").validate({
-                rules: {
-                    inputGroupFile04: {
-                        required: true
-                    },
-                    namagedung: {
-                        required: true
-                    },
-                    deskripsigedung: {
-                        required: true
-                    },
-                    keterangan: {
-                        required: true
-                    }
-                },
-                messages: {
-                    inputGroupFile04: {
-                        required: "Silakan pilih file."
-                    },
-                    namagedung: {
-                        required: "Silakan masukkan Nama Gedung."
-                    },
-                    deskripsigedung: {
-                        required: "Silakan masukkan Deskripsi Gedung."
-                    },
-                    keterangan: {
-                        required: "Silakan masukkan Informasi Gedung."
-                    }
-                },
-                submitHandler: function (form) {
-                    tambahdata();
-                }
-            });
+</div>
+<script>
+    function openEditModal(id, nama, deskripsi ,keterangan) {
+    var modal = document.getElementById('editModal');
 
-            $("#tambah").click(function () {
-                var isValid = true;
-                $("#formModalTambah input").each(function(){
-                    if ($(this).val()===""){
-                        isValid = false;
-                        return false;
-                    }
-                });
-                if (isValid){
-                    tambahdata();
-                } else {
-                    alert("Harap isi semua field sebelum menambahkan data.")
-                }
-            });
+    // Populate modal fields with data
+    document.getElementById('editid').value = id;
+    document.getElementById('editName').value = nama;
+    document.getElementById('editdeskripsi').value = deskripsi;
+    document.getElementById('editketerangan').value = keterangan;
 
-            $(".hapus-btn").click(function () {
-                var currentRow = $(this).closest("tr");
-                $('#Delete').modal('show');
-                $("#btnDeleteConfirm").on("click", function () {
-                    currentRow.remove();
-                    $('#Delete').modal('hide');
-                });
-            });
-        });
-
-        function tambahdata() {
-            var inputGambar = $("#inputGroupFile04").val();
-            var namaGedungInput = $("#namagedung").val();
-            var deskripsiGedungInput = $("#deskripsigedung").val();
-            var keteranganInput = $("#keterangan").val();
-            
-            if (inputGambar !== "" && namaGedungInput !== "" && deskripsiGedungInput !== "" && keteranganInput !== "") {
-            var newRow = $("<tr>");
-            newRow.append("<td>" + inputGambar + "</td>");
-            newRow.append("<td>" + namaGedungInput + "</td>");
-            newRow.append("<td>" + deskripsiGedungInput + "</td>");
-            newRow.append("<td>" + keteranganInput + "</td>");
-            newRow.append('<td><button type="button" class="btn btn-primary">Edit</button>' +
-                '<button type="button" style="margin-left:5px" class="btn btn-danger hapus-btn">Hapus</button>');
-
-            $("#tabel tbody").append(newRow);
-
-            $("#inputGroupFile04, #namagedung, #deskripsigedung, #keterangan").val('');
-        } else {
-            alert("Harap isi semua field sebelum menambahkan data.");
-        }
+    // Show the modal
+    $(modal).modal('show');
     }
-    </script>
+
+    var clickedItemId = 1;
+</script>

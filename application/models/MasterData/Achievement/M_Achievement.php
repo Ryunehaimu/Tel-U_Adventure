@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_GEDUNG extends CI_Model{
+class M_Achievement extends CI_Model{
     public function getDataMatakuliah(){
         $this->db->select('*');
-        $this->db->from('gedung');
+        $this->db->from('achievement');
         $query = $this->db->get();
         return $query->result();
     }
     public function tambah_data($data) {
-        $this->db->insert('gedung', $data);
+        $this->db->insert('achievement', $data);
     }
 
     public function delete($where,$table){
