@@ -13,7 +13,7 @@
                 <img src="<?= base_url("application/assets/img/Fadhil.png") ?>" alt="" />
             </div>
             <div class="user-details">
-                <p class="title">Admin</p>
+                <p class="title">User</p>
                 <p style="color:white" class="name"><?= $this->session->userdata('nama'); ?></p>
             </div>
         </div>
@@ -22,49 +22,16 @@
                 <p class="title">Main</p>
                 <ul style="margin-left:-20px">
                     <li class="active">
-                        <a href="<?= base_url("admin") ?>">
+                        <a href="<?= base_url("user") ?>">
                             <i class="icon ph-bold ph-house-simple"></i>
                             <span class="text">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="icon ph-bold ph-file-text"></i>
-                            <span class="text">Master Data</span>
-                            <i class="arrow ph-bold ph-caret-down"></i>
+                        <a href="<?= base_url("user/map") ?>">
+                            <i class="fa-solid fa-map"></i>
+                            <span class="text">Map</span>
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="<?= base_url("admin/user") ?>">
-                                    <span class="text">User</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url("con_achievement") ?>">
-                                    <span class="text">Achievment</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url("con_matkul") ?>">
-                                    <span class="text">Mata Kuliah</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url("con_gedung") ?>">
-                                    <span class="text">Gedung</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url("con_hilang") ?>">
-                                    <span class="text">Laporan Barang Hilang</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url("con_temu") ?>">
-                                    <span class="text">Laporan Barang Ditemukan</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -73,7 +40,7 @@
             <p class="title">Account</p>
                 <ul style="margin-left:-20px">
                     <li>
-                        <a href="<?= base_url("admin/setting") ?>">
+                        <a href="<?= base_url("user/setting") ?>">
                             <i class="icon ph-bold ph-gear"></i>
                             <span class="text">Settings</span>
                         </a>

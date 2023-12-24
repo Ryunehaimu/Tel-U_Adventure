@@ -6,7 +6,7 @@
     <div class="card" style="widht:500px;height:500px;  display: flex; flex-direction: column; align-items: center; justify-content: center;  text-align: center;">
       <div class="content">
         <img src="<?= base_url("application/assets/img/fadhil.png")?>" style="width: 70%; height: 70%; border-radius: 9999px;">
-        <p style="font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word">DAVID GHOLI RAHMADANA</p>
+        <label style="font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word"><?= $this->session->userdata('nama'); ?></label>
       </div>
     </div>
   </div>
@@ -16,50 +16,63 @@
         <p style="font-size: 40px; font-family: Inter; font-weight: 600; word-wrap: break-word; margin-left: 50px; margin-top: 20px">Edit Profil</p>
       </div>
       <div class="form" style="padding: 40px; font-size: 20px; font-family: Inter; font-weight: 600; word-wrap: break-word; padding-top: 10px">
-        <form>
+        <form method="post" action="<?= base_url('admin/update_profil'); ?>">
           <div class="row">
             <div class="col-md-4">
-              <label for="firstName">Nama Depan</label>
+              <label for="firstName">Nama</label>
             </div>
             <div class="col-md-8">
-              <input style="width: 400px;padding-left:10px" type="text" id="firstName" name="firstName" value="DAVID">
+              <input style="width: 400px; padding-left: 10px" type="text" id="editName" name="editName" value="<?= $this->session->userdata('nama'); ?>">
             </div>
           </div>
           <div class="row" style="margin-top: 10px">
             <div class="col-md-4">
-              <label for="lastName">Nama Belakang</label>
+              <?php
+                if ($this->session->userdata('role_id') == 0) {
+                    echo '<label for="NIM">NIM</label>';
+                } else {
+                    echo '<label for="NIP">NIP</label>';
+                }
+              ?>
             </div>
             <div class="col-md-8">
-              <input style="width: 400px;padding-left:10px" type="text" id="lastName" name="lastName" value="GHOLI RAHMADANA">
+              <input style="width: 400px; padding-left: 10px" type="text" id="editNim" name="editNim" value="<?= $this->session->userdata('NIM_NIP'); ?>" readonly>
             </div>
           </div>
           <div class="row" style="margin-top: 10px">
             <div class="col-md-4">
-              <label for="NIM">NIM</label>
+                <label
+                    <?php
+                    if ($this->session->userdata('role_id') == 0) {
+                        echo 'style="display: block;"';
+                    } else {
+                        echo 'style="display: none;"';
+                    }
+                    ?>
+                    for="class">Angkatan</label>
             </div>
             <div class="col-md-8">
-              <input style="width: 400px;padding-left:10px" type="text" id="NIM" name="NIM" value="1302213079">
+              <input 
+                  style="
+                      width: 400px; 
+                      padding-left: 10px;
+                      <?php
+                      if ($this->session->userdata('role_id') == 0) {
+                          echo 'display: block;';
+                      } else {
+                          echo 'display: none;';
+                      }
+                      ?>
+                  " 
+                  type="text" 
+                  id="editAngkatan" 
+                  name="editAngkatan" 
+                  value="<?= $this->session->userdata('angkatan'); ?>">
             </div>
           </div>
-          <div class="row" style="margin-top: 10px">
-            <div class="col-md-4">
-              <label for="class">Kelas</label>
-            </div>
-            <div class="col-md-8">
-              <input style="width: 400px;padding-left:10px" type="text" id="class" name="class" value="SE4501">
-            </div>
-          </div>
-          <div class="row" style="margin-top: 10px">
-            <div class="col-md-4">
-              <label for="email">Email</label>
-            </div>
-            <div class="col-md-8">
-              <input style="width: 400px;padding-left:10px" type="email" id="email" name="email" value="davidgholirahmadana@employee.telkomuniversity.ac.id" disabled>
-            </div>
-          </div>
+          <button type="submit" style="color: white;padding-left:10px;font-family: Inter; font-weight: 600; word-wrap: break-word; width: 100px; height; 100px; margin-left: 570px; background: #F30606; border-radius: 5px; padding: 5px">Submit</button>
         </form>
       </div>
-      <button type="submit" style="color: white;padding-left:10px;font-family: Inter; font-weight: 600; word-wrap: break-word; width: 100px; height; 100px; margin-left: 570px; background: #F30606; border-radius: 5px; padding: 5px">Submit</button>
     </div>
   </div>
 </div>

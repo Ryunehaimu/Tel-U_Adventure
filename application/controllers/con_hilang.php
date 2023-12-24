@@ -14,7 +14,7 @@ class con_hilang extends CI_Controller
     {
         $datahl = $this->model->getDataMatakuliah();
         $list = array('datahl'=>$datahl);
-        $data['title'] = 'Master Data MataKuliah';
+        $data['title'] = 'Master Data Laporan Barang Hilang';
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar');
         $this->load->view('admin/MasterData/LaporanBarangHilang/LaporanBarangHilang',$list);
@@ -38,7 +38,7 @@ class con_hilang extends CI_Controller
                 'deskripsi' => $this->input->post('deskripsi'),
                 'status' => $this->input->post('status')
             );
-            $datahl= $this->model->tambah_data($data);
+            $dataac= $this->model->tambah_data($data);
             return redirect(base_url('con_hilang'));
         }
         return redirect(base_url('con_hilang'));
@@ -64,7 +64,7 @@ class con_hilang extends CI_Controller
         $status = $this->input->post('editstatus');
     
         $this->db->where('id', $id);
-        $this->db->update('hilang', array('Nama' => $nama, 'Jenis' => $jenis, 'Tanggal' => $tanggal ,'Deskripsi' => $deskripsi, 'Status' => $status));
+        $this->db->update('hilang', array('Nama' => $nama,'Jenis' => $jenis,'Tanggal' => $tanggal, 'Deskripsi' => $deskripsi, 'Status' => $status));
     
         return redirect(base_url('con_hilang'));
     }

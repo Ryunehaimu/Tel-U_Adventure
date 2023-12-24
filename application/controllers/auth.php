@@ -34,14 +34,22 @@ class auth extends CI_Controller
             if (password_verify($password, $user['Password'])) {
                 session_start();
                 $userdata = [
-                    'user_id' => $user['NIM'],
+                    'NIM_NIP' => $user['NIM_NIP'],
                     'username' => $user['Username'],
-                    'nama' => $user['nama'],
-                    'angkatan' => $user['angkatan'],
+                    'nama' => $user['Nama'],
+                    'angkatan' => $user['Angkatan'],
+                    'role_id' => $user['role_id'],
                 ];
+                
     
                 $this->session->set_userdata($userdata);
-                redirect('admin');
+                if ($user['role_id'] == 1) {
+                    redirect('admin');
+                } elseif ($user['role_id'] == 0) {
+                    redirect('user');
+                } else {
+                    redirect(base_url('auth'));
+                }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah!</div>');
                 redirect(base_url('auth'));
@@ -51,5 +59,6 @@ class auth extends CI_Controller
             redirect(base_url('auth'));
         }
     }
+    
     
 }

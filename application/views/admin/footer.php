@@ -19,7 +19,7 @@
 
             // Tangani klik pada tombol Iya
             document.getElementById('logoutYes').addEventListener('click', function() {
-                window.location.href = '<?=base_url("Welcome")?>';
+                window.location.href = '<?=base_url("admin/logout")?>';
             });
 
             // Tangani klik pada tombol Tidak

@@ -14,7 +14,7 @@ class con_temu extends CI_Controller
     {
         $datahl = $this->model->getDataMatakuliah();
         $list = array('datahl'=>$datahl);
-        $data['title'] = 'Master Data MataKuliah';
+        $data['title'] = 'Master Data Laporan Barang Ditemukan';
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar');
         $this->load->view('admin/MasterData/LaporanBarangDitemukan/LaporanBarangDitemukan',$list);
@@ -48,7 +48,7 @@ class con_temu extends CI_Controller
     {
         $where = array('id' => $id);
 
-        $this->model->delete($where,'hilang');
+        $this->model->delete($where,'temu');
         $this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
         Data berhasil Dihapus! <button type="button" clase="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         return redirect(base_url('con_temu'));
@@ -64,7 +64,7 @@ class con_temu extends CI_Controller
         $status = $this->input->post('editstatus');
     
         $this->db->where('id', $id);
-        $this->db->update('hilang', array('Nama' => $nama, 'Jenis' => $jenis, 'Tanggal' => $tanggal ,'Deskripsi' => $deskripsi, 'Status' => $status));
+        $this->db->update('temu', array('Nama' => $nama, 'Jenis' => $jenis, 'Tanggal' => $tanggal ,'Deskripsi' => $deskripsi, 'Status' => $status));
     
         return redirect(base_url('con_temu'));
     }

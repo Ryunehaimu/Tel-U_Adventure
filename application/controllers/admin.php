@@ -22,52 +22,27 @@ class admin extends CI_Controller
     {
         $datauser = $this->model->getDataUser();
         $list = array('datauser'=>$datauser);
-        $data['title'] = 'Master Data User';
+        $data['title'] = 'Master Data Mahasiswa';
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar');
         $this->load->view('admin/MasterData/user/user',$list);
         $this->load->view('admin/footer');
     }
 
-    public function create()
-    {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('nim', 'NIM', 'required');
-        $this->form_validation->set_rules('angkatan', 'Angkatan', 'required');
+    public function update_profil() {
 
-        if ($this->form_validation->run()) 
-        {
-            $data = array(
-                'nama' => $this->input->post('nama'),
-                'nim' => $this->input->post('nim'),
-                'angkatan' => $this->input->post('angkatan')
-            );
-            $datauser = $this->model->tambah_data($data);
-            return redirect(base_url('admin/user'));
-        }
-        return redirect(base_url('admin/user'));
-    }
-    
-    public function delete($id)
-    {
-        $where = array('NIM' => $id);
-
-        $this->model->delete($where,'sso');
-        $this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data berhasil Dihapus! <button type="button" clase="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        return redirect(base_url('admin/user'));
-    }
-    
-
-    public function update() {
-        $nim = $this->input->post('editNim');
         $nama = $this->input->post('editName');
+        $nim = $this->input->post('editNim');
         $angkatan = $this->input->post('editAngkatan');
-    
-        $this->db->where('NIM', $nim);
+
+        $this->db->where('NIM_NIP', $nim);
         $this->db->update('sso', array('Nama' => $nama, 'Angkatan' => $angkatan));
-    
-        return redirect(base_url('admin/user'));
+        return redirect(base_url('admin/setting'));
+    }
+    public function logout() {
+        $this->load->library('session');
+        $this->session->sess_destroy();
+        redirect('welcome'); // Redirect ke halaman login atau halaman lain yang sesuai
     }
     
     public function achievment()
