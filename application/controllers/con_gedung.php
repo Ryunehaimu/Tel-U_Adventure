@@ -14,7 +14,7 @@ class con_gedung extends CI_Controller
     {
         $datagd = $this->model->getDataMatakuliah();
         $list = array('datagd'=>$datagd);
-        $data['title'] = 'Master Data MataKuliah';
+        $data['title'] = 'Master Data Gedung';
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar');
         $this->load->view('admin/MasterData/gedung/gedung',$list);
@@ -57,7 +57,7 @@ class con_gedung extends CI_Controller
         $keterangan = $this->input->post('editketerangan');
     
         $this->db->where('id', $id);
-        $this->db->update('mata_kuliah', array('Nama' => $nama, 'Deskripsi' => $deskripsi, 'Keterangan' => $keterangan));
+        $this->db->update('gedung', array('Nama' => $nama, 'Deskripsi' => $deskripsi, 'Keterangan' => $keterangan));
     
         return redirect(base_url('con_gedung'));
     }
