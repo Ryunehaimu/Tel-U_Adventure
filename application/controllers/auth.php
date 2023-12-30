@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class auth extends CI_Controller
+class Auth extends CI_Controller
 {
     public function __construct()
     {
@@ -9,9 +9,15 @@ class auth extends CI_Controller
         $this->load->library('form_validation');
     }
 
-
     public function index()
     {
+        if ($this->session->userdata('role_id')!="") {
+            if ($this->session->userdata('role_id') == 1) {
+                redirect('admin');
+            } elseif ($this->session->userdata('role_id') == 0) {
+                redirect('user');
+            }
+        }
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == false) {
@@ -27,12 +33,12 @@ class auth extends CI_Controller
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-    
+
         $user = $this->db->get_where('sso', ['Username' => $username])->row_array();
-    
+
         if ($user) {
             if (password_verify($password, $user['Password'])) {
-                session_start();
+                // Set session data
                 $userdata = [
                     'NIM_NIP' => $user['NIM_NIP'],
                     'username' => $user['Username'],
@@ -40,9 +46,10 @@ class auth extends CI_Controller
                     'angkatan' => $user['Angkatan'],
                     'role_id' => $user['role_id'],
                 ];
-                
-    
+
                 $this->session->set_userdata($userdata);
+
+                // Redirect based on role
                 if ($user['role_id'] == 1) {
                     redirect('admin');
                 } elseif ($user['role_id'] == 0) {
@@ -59,6 +66,4 @@ class auth extends CI_Controller
             redirect(base_url('auth'));
         }
     }
-    
-    
 }

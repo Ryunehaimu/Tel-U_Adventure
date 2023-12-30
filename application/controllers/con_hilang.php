@@ -39,7 +39,6 @@ class con_hilang extends CI_Controller
                 'status' => $this->input->post('status')
             );
             $dataac= $this->model->tambah_data($data);
-            return redirect(base_url('con_hilang'));
         }
         return redirect(base_url('con_hilang'));
     }

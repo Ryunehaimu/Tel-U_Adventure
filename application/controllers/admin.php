@@ -42,7 +42,7 @@ class admin extends CI_Controller
     public function logout() {
         $this->load->library('session');
         $this->session->sess_destroy();
-        redirect('welcome'); // Redirect ke halaman login atau halaman lain yang sesuai
+        redirect('welcome');
     }
     
     public function achievment()

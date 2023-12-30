@@ -35,7 +35,6 @@ class con_gedung extends CI_Controller
                 'keterangan' => $this->input->post('keterangan')
             );
             $datamk= $this->model->tambah_data($data);
-            return redirect(base_url('con_gedung'));
         }
         return redirect(base_url('con_gedung'));
     }

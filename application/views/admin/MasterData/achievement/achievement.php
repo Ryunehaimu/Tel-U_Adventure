@@ -76,7 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label for="editdeskripsi">Deskripsi</label>
-                        <input type="text" class="form-control" id="editdeskripsi" name="editdeskripsi" disabled>
+                        <input type="text" class="form-control" id="editdeskripsi" name="editdeskripsi" required>
                     </div>
                     <div class="form-group">
                         <label for="editpoin">Poin</label>
@@ -129,16 +129,14 @@
 </div>
 </div>
 <script>
-    function openEditModal(id, nama, deskripsi ,poin) {
+    function openEditModal(id, nama, deskripsi, poin) {
         var modal = document.getElementById('editModal');
 
-        // Populate modal fields with data
         document.getElementById('editid').value = id;
         document.getElementById('editName').value = nama;
         document.getElementById('editdeskripsi').value = deskripsi;
-        document.getElementById('ediPoin').value = poin;
+        document.getElementById('editpoin').value = poin;
 
-        // Show the modal
         $(modal).modal('show');
     }
 

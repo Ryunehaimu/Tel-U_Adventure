@@ -23,8 +23,8 @@ class con_matkul extends CI_Controller
 
     public function create()
     {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('kode', 'Kode', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required|max_length[20]');
+        $this->form_validation->set_rules('kode', 'Kode', 'required|regex_match[/^[a-zA-Z0-9]{6}$/]');
         $this->form_validation->set_rules('dosen', 'Dosen', 'required');
 
         if ($this->form_validation->run()) 
@@ -34,11 +34,13 @@ class con_matkul extends CI_Controller
                 'kode' => $this->input->post('kode'),
                 'dosenpengampu' => $this->input->post('dosen')
             );
-            $datamk= $this->model->tambah_data($data);
-            return redirect(base_url('con_matkul'));
+            
+            $datamk = $this->model->tambah_data($data);
+
         }
         return redirect(base_url('con_matkul'));
     }
+    
     
     public function delete($id)
     {

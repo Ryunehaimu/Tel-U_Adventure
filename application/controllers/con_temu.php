@@ -25,7 +25,7 @@ class con_temu extends CI_Controller
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');
-        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|regex_match[/^[a-zA-Z0-9]{6}$/]');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
 
@@ -39,7 +39,6 @@ class con_temu extends CI_Controller
                 'status' => $this->input->post('status')
             );
             $datahl= $this->model->tambah_data($data);
-            return redirect(base_url('con_temu'));
         }
         return redirect(base_url('con_temu'));
     }

@@ -35,7 +35,6 @@ class con_achievement extends CI_Controller
                 'poin' => $this->input->post('poin')
             );
             $dataac= $this->model->tambah_data($data);
-            return redirect(base_url('con_achievement'));
         }
         return redirect(base_url('con_achievement'));
     }
