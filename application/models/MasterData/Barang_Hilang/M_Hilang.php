@@ -16,6 +16,14 @@ class M_Hilang extends CI_Model{
         $this->db->where($where);
         $this->db->delete($table);
     }
+    public function getBarangStatusCount() {
+        $query = $this->db->select('status, COUNT(*) as total_barang')
+                          ->from('hilang')
+                          ->group_by('status')
+                          ->get();
+
+        return $query->result_array();
+    }
 }
 
 ?>

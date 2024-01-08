@@ -23,26 +23,44 @@ class con_hilang extends CI_Controller
 
     public function create()
     {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
-        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
-
-        if ($this->form_validation->run()) 
+    $this->form_validation->set_rules('nama', 'Nama', 'required');
+    $this->form_validation->set_rules('jenis', 'Jenis', 'required');
+    $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+    $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
+    $this->form_validation->set_rules('status', 'Status', 'required');
+    
+    if ($this->form_validation->run()) 
         {
+            $config['upload_path'] = './application/assets/gambar/hilang';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png';
+            $config['max_size'] = 10000;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('gambar')){
+                $upload_data = $this->upload->data();
+
             $data = array(
                 'nama' => $this->input->post('nama'),
                 'jenis' => $this->input->post('jenis'),
                 'tanggal' => $this->input->post('tanggal'),
                 'deskripsi' => $this->input->post('deskripsi'),
-                'status' => $this->input->post('status')
+                'gambar' => $upload_data['file_name'], // Save the file name
+                'status' => $this->input->post('status'),
             );
-            $dataac= $this->model->tambah_data($data);
-        }
+            echo "chechpoin1";
+            $datamk= $this->model->tambah_data($data);
+            } else {
+                // Upload gagal, handle sesuai kebutuhan
+                $error = $this->upload->display_errors();
+                $this->session->set_flashdata('errors', $error);
+            }
         return redirect(base_url('con_hilang'));
+        } else {
+            $error = $this->upload->display_errors();
+            $this->session->set_flashdata('errors', validation_errors());
+        }
     }
-    
     public function delete($id)
     {
         $where = array('id' => $id);
@@ -62,11 +80,41 @@ class con_hilang extends CI_Controller
         $deskripsi = $this->input->post('editdeskripsi');
         $status = $this->input->post('editstatus');
     
+        $id = $this->input->post('editid');
+        $nama = $this->input->post('editName');
+        $deskripsi = $this->input->post('editdeskripsi');
+        $keterangan = $this->input->post('editketerangan');
+    
+        $data = array(
+            'Nama' => $nama,
+            'Jenis' => $jenis,
+            'Tanggal' => $tanggal,
+            'Deskripsi' => $deskripsi,
+            'Status' => $status,
+        );
+    
+        // Check if a new image is uploaded
+        if ($_FILES['editgambar']['name']) {
+            $config['upload_path'] = './application/assets/gambar/hilang';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png';
+            $config['max_size'] = 10000;
+    
+            $this->load->library('upload', $config);
+    
+            if ($this->upload->do_upload('editgambar')) {
+                $upload_data = $this->upload->data();
+                $data['Gambar'] = $upload_data['file_name'];
+            } else {
+                // Handle upload errors
+                $error = $this->upload->display_errors();
+                $this->session->set_flashdata('errors', $error);
+                return redirect(base_url('con_hilang'));
+            }
+        }
+    
         $this->db->where('id', $id);
-        $this->db->update('hilang', array('Nama' => $nama,'Jenis' => $jenis,'Tanggal' => $tanggal, 'Deskripsi' => $deskripsi, 'Status' => $status));
-    
+        $this->db->update('hilang', $data);
+  
         return redirect(base_url('con_hilang'));
-    }
-
-    
+    } 
 }

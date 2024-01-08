@@ -10,7 +10,7 @@
         </div>
         <div class="head">
             <div class="user-img">
-                <img src="<?= base_url("application/assets/img/Fadhil.png") ?>" alt="" />
+                <img src="<?= base_url('application/assets/gambar/profil') ?>/<?= $this->session->userdata('img'); ?>" alt="" />
             </div>
             <div class="user-details">
                 <p class="title">Admin</p>

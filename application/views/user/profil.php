@@ -18,8 +18,8 @@
       <?= form_close() ?>
       </div>
   </div>
-  <div class="col-md-8">
-    <div class="card" style="widht:1000px;height:500px">
+  <div class="col-md-6">
+    <div class="card" style="widht:800px;height:500px">
       <div class="content">
         <p style="font-size: 40px; font-family: Inter; font-weight: 600; word-wrap: break-word; margin-left: 50px; margin-top: 20px">Edit Profil</p>
       </div>

@@ -122,10 +122,54 @@
         </div>
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('.was-validated');
+            var modal = new bootstrap.Modal(document.getElementById('User'));
+
+            modal._element.addEventListener('show.bs.modal', function () {
+                form.reset();
+                form.reportValidity();
+            });
+
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                var namaInput = document.getElementById('nama');
+                if (namaInput.value.length > 20) {
+                    namaInput.setCustomValidity('Nama Matakuliah harus maksimal 20 huruf.');
+                } else {
+                    namaInput.setCustomValidity('');
+                }
+
+                var kodeInput = document.getElementById('kode');
+                var kodeValue = kodeInput.value;
+                if (!(kodeValue.length === 6 && /[a-zA-Z]/.test(kodeValue) && /\d/.test(kodeValue))) {
+                    kodeInput.setCustomValidity('Kode Matakuliah harus berjumlah 6 digit dan mengandung minimal satu huruf dan satu angka.');
+                } else {
+                    kodeInput.setCustomValidity('');
+                }
+
+                form.reportValidity();
+            });
+
+            document.getElementById('editForm').addEventListener('submit', function (event) {
+            validateForm('editForm'); 
+        });
+
+
+        var editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        editModal._element.addEventListener('show.bs.modal', function () {
+
+            document.getElementById('editForm').reset();
+            validateForm('editForm');
+        });
+        });
         function openEditModal(id,nama, kode, dosenpengampu) {
             var modal = document.getElementById('editModal');
 
-            // Populate modal fields with data
             document.getElementById('editName').value = nama;
             document.getElementById('editKode').value = kode;
             document.getElementById('editDosen').value = dosenpengampu;

@@ -51,14 +51,20 @@ class con_achievement extends CI_Controller
     
 
     public function update() {
-        $id = $this->input->post('editid');
-        $nama = $this->input->post('editName');
-        $deskripsi = $this->input->post('editdeskripsi');
-        $poin = $this->input->post('editpoin');
+        $this->form_validation->set_rules('editName', 'Nama', 'required|max_length[20]');
+        $this->form_validation->set_rules('editdeskripsi', 'Deskripsi', 'required|max_length[100]');
+        $this->form_validation->set_rules('editpoin', 'Poin', 'required|numeric|greater_than_equal_to[1]|less_than_equal_to[50]');
+
+        if ($this->form_validation->run()) {
+
+            $id = $this->input->post('editid');
+            $nama = $this->input->post('editName');
+            $deskripsi = $this->input->post('editdeskripsi');
+            $poin = $this->input->post('editpoin');
     
-        $this->db->where('id', $id);
-        $this->db->update('achievement', array('Nama' => $nama, 'Deskripsi' => $deskripsi, 'Poin' => $poin));
-    
+            $this->db->where('id', $id);
+            $this->db->update('achievement', array('Nama' => $nama, 'Deskripsi' => $deskripsi, 'Poin' => $poin));
+        }
         return redirect(base_url('con_achievement'));
     }
 

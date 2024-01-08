@@ -1,4 +1,4 @@
-<div class="card" style="widht:1600px;height:600px;margin-top:50px">
+<div class="card" style="widht:1600px;height:700px;margin-top:50px">
 
 <div class="row">
     <div class="col-md-6">
@@ -18,7 +18,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Barang Ditemukan</h1>
                 </div>
                 <div class="modal-body">
-                    <form class="was-validated" method="post" action="<?= base_url("con_temu/create") ?>" novalidate>
+                    <?= form_open_multipart(base_url("con_temu/create"), 'class="was-validated" novalidate') ?>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
                             <input class="form-control" id="nama" name="nama" required>
@@ -60,17 +60,30 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" id="status" name="status" required>
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status" required>
+                            <option value="Sudah diambil">Sudah diambil</option>
+                            <option value="Belum diambil">Belum diambil</option>
+                        </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid status.
+                        </div>
+                    </div>
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label">Gambar</label>
+                            <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                             <div class="invalid-feedback">
-                                Please provide a valid tanggal.
+                                Please provide a valid image file.
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Tambah</button>
-                    </form>
+                        <?= form_close() ?>
                 </div>
             </div>
         </div>
@@ -88,7 +101,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?= base_url("con_temu/update") ?>">
+            <form method="POST" action="<?= base_url("con_temu/update") ?>" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="hidden" class="form-control" id="editid" name="editid">
                         <label for="editName">Nama</label>
@@ -108,7 +121,14 @@
                     </div>
                     <div class="form-group">
                         <label for="editstatus">Status</label>
-                        <input type="text" class="form-control" id="editstatus" name="editstatus" required>
+                        <select class="form-select" id="editstatus" name="editstatus" required>
+                            <option value="Sudah diambil">Sudah diambil</option>
+                            <option value="Belum diambil">Belum diambil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editgambar">Gambar</label>
+                        <input type="file" class="form-control" id="editgambar" name="editgambar" accept="image/*" required>
                     </div>
                     <button type="submit" class="btn btn-primary" >Save Changes</button>
                 </form>
@@ -126,6 +146,7 @@
                 <th>Jenis</th>
                 <th>Tanggal Ditemukan</th>
                 <th>Deskripsi</th>
+                <th>Gambar</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -142,6 +163,7 @@
                     <td><?= $row->Jenis ?></td>
                     <td><?= $row->Tanggal ?></td>
                     <td><?= $row->Deskripsi ?></td>
+                    <td><img src="<?= base_url('application/assets/gambar/temu') ?>/<?= $row->gambar ?>" width="100px"></td>
                     <td><?= $row->Status ?></td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="openEditModal('<?= $row->id ?>', '<?= $row->Nama ?>', '<?= $row->Jenis ?>', '<?= $row->Tanggal ?>', '<?= $row->Deskripsi ?>', '<?= $row->Status ?>')" id="editBtn_<?= $row->id ?>">
@@ -162,20 +184,28 @@
 </div>
 </div>
 <script>
-function openEditModal(id, nama, jenis, tanggal, deskripsi ,status) {
-var modal = document.getElementById('editModal');
+    function openEditModal(id, nama, jenis, tanggal, deskripsi ,status) {
+        var modal = document.getElementById('editModal');
 
-// Populate modal fields with data
-document.getElementById('editid').value = id;
-document.getElementById('editName').value = nama;
-document.getElementById('editjenis').value = jenis;
-document.getElementById('edittanggal').value = tanggal;
-document.getElementById('editdeskripsi').value = deskripsi;
-document.getElementById('editstatus').value = status;
+        // Populate modal fields with data
+        document.getElementById('editid').value = id;
+        document.getElementById('editName').value = nama;
+        document.getElementById('editjenis').value = jenis;
+        document.getElementById('edittanggal').value = tanggal;
+        document.getElementById('editdeskripsi').value = deskripsi;
 
-// Show the modal
-$(modal).modal('show');
-}
+        // Set the selected option in the dropdown for status
+        var statusDropdown = document.getElementById('editstatus');
+        for (var i = 0; i < statusDropdown.options.length; i++) {
+            if (statusDropdown.options[i].value === status) {
+                statusDropdown.selectedIndex = i;
+                break;
+            }
+        }
 
-var clickedItemId = 1;
+        // Show the modal
+        $(modal).modal('show');
+    }
+
+    var clickedItemId = 1;
 </script>

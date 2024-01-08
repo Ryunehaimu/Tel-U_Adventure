@@ -15,7 +15,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Gedung</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Achievement</h1>
                 </div>
                 <div class="modal-body">
                     <form class="was-validated" method="post" action="<?= base_url("con_achievement/create") ?>" novalidate>
@@ -129,7 +129,58 @@
 </div>
 </div>
 <script>
-    function openEditModal(id, nama, deskripsi, poin) {
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('.was-validated');
+            var modal = new bootstrap.Modal(document.getElementById('User'));
+
+            modal._element.addEventListener('show.bs.modal', function () {
+                form.reset();
+                form.reportValidity();
+            });
+
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                var namaInput = document.getElementById('nama');
+                if (namaInput.value.length > 20) {
+                    namaInput.setCustomValidity('Nama Achievement harus maksimal 20 huruf.');
+                } else {
+                    namaInput.setCustomValidity('');
+                }
+
+                var deskripsiInput = document.getElementById('deskripsi');
+                if (deskripsiInput.value.length > 20) {
+                    deskripsiInput.setCustomValidity('Nama Achievement harus maksimal 20 huruf.');
+                } else {
+                    deskripsiInput.setCustomValidity('');
+                }
+                var PoinInput = document.getElementById('poin');
+                var PoinValue = parseInt(PoinInput.value);
+                if (PoinValue < 1 || PoinValue > 50 || isNaN(PoinValue)) {
+                    PoinInput.setCustomValidity('Poin harus berada di antara 1 dan 50.');
+                } else {
+                    PoinInput.setCustomValidity('');
+                }
+
+                form.reportValidity();
+            });
+
+            document.getElementById('editForm').addEventListener('submit', function (event) {
+            validateForm('editForm'); 
+        });
+
+
+        var editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        editModal._element.addEventListener('show.bs.modal', function () {
+
+            document.getElementById('editForm').reset();
+            validateForm('editForm');
+        });
+        });
+        function openEditModal(id, nama, deskripsi, poin) {
         var modal = document.getElementById('editModal');
 
         document.getElementById('editid').value = id;
@@ -138,7 +189,7 @@
         document.getElementById('editpoin').value = poin;
 
         $(modal).modal('show');
-    }
+        }
 
-    var clickedItemId = 1;
-</script>
+        var clickedItemId = 1;
+    </script>

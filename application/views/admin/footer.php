@@ -8,25 +8,37 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script>
-        new DataTable('#example');
-        // Tangani klik pada tombol Logout
+        // Initialize DataTable with pagination
+        new DataTable('#example', {
+            paging: true,
+            lengthMenu: [2, 5, 10], // Set the number of rows per page options
+            pageLength: 2, // Set the default number of rows per page
+            searching: true,
+            ordering: true,
+            info: true,
+            responsive: true
+        });
+
+        // Handle logout button click
         document.querySelector("a[href*='Welcome']").addEventListener("click", function(e) {
             e.preventDefault();
-            // Tampilkan modal konfirmasi
+
+            // Show the logout modal
             const modal = document.getElementById('logoutModal');
             modal.showModal();
 
-            // Tangani klik pada tombol Iya
+            // Handle click on the "Yes" button
             document.getElementById('logoutYes').addEventListener('click', function() {
                 window.location.href = '<?=base_url("admin/logout")?>';
             });
 
-            // Tangani klik pada tombol Tidak
+            // Handle click on the "No" button
             document.getElementById('logoutNo').addEventListener('click', function() {
-                modal.close(); // Tutup modal
+                modal.close(); // Close the modal
             });
-       });
+        });
     </script>
+
 </body>
 <footer style="border-top: 1px gray;margin-top:50px;">
     <center>
