@@ -110,38 +110,19 @@
       </div>
     </div>
     <div class="row" style="margin-top: 70px;">
+      <?php
+      $limitedFeedbackData = array_slice($feedbackData, 0, 4);
+      ?>
+      <?php foreach ($limitedFeedbackData as $feedback): ?>
       <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="./application/assets/img/rasyid.jpg" style="width: 287px;height:250px" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div class="card" style="width: 18rem;">
+              <img src="<?= base_url('application/assets/gambar/profil') ?>/<?= $feedback->img ?>" style="width: 287px;height:250px" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <p class="card-text"><?php echo $feedback->Feedback; ?></p>
+              </div>
           </div>
-        </div>
       </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="./application/assets/img/yoga.jpg" style="width: 287px;height:250px" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="./application/assets/img/faris.jpg" style="width: 287px;height:250px" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="./application/assets/img/heru.jpg" style="width: 287px;height:250px" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
   </div>

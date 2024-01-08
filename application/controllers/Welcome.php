@@ -21,7 +21,15 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-		// $this->load->view('header');
-		$this->load->view('user/landing');
+		$this->load->model('MasterData/User/M_USER');
+        $feedbackData = $this->M_USER->getDataUser();
+        $data1['feedbackData'] = $feedbackData;
+		$data['title'] = 'Landing';
+		$this->load->view('header',$data);
+		$this->load->view('./user/landing',$data1);
+
 	}
+	public function displayCards() {
+
+    }
 }

@@ -82,7 +82,7 @@ CREATE TABLE `ruangan` (
 --
 
 CREATE TABLE `sso` (
-  `NIM` varchar(30) NOT NULL,
+  `NIM/NIP` varchar(30) NOT NULL,
   `Username` varchar(30) NOT NULL,
   `Password` varchar(1000) NOT NULL,
   `role_id` int(11) NOT NULL
